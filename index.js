@@ -8,9 +8,9 @@ let boton= document.getElementById("btn");
     let nac = document.getElementById("birthday").value;
     let update = {
         
-        nombre: nom,
-        apellido: apell,
-        nacimiento : nac
+        Nombre: nom,
+        Apellido: apell,
+        Nacimiento : nac
         };
 
     fetch('https://jsonplaceholder.typicode.com/users',{method: 'POST',
@@ -24,12 +24,18 @@ let boton= document.getElementById("btn");
        }
        return data.json();
       }).then(update => {
-      console.log(update);
+      console.log(update)
+      
+       document.getElementById("result").innerHTML= `<br><br>Sus datos se han registrado correctamente:<br><br>
+       nombre: ${nom} <br><br>
+      apellido: ${apell} <br><br>
+      Fecha de nacimiento: ${nac}
+      
+      `      
+      ;
      
       }).catch(e => {
       console.log(e);
       });
     
     });
-
-  
